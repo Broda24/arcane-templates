@@ -11,3 +11,8 @@ docker.io/syncthing/syncthing
 docker.io/louislam/uptime-kuma
 docker.io/binwiederhier/ntfy
 docker.io/triliumnext/trilium
+docker.io/paperlessngx/paperless-ngx
+docker.io/library/postgres
+docker.io/gotenberg/gotenberg
+docker.io/apache/tika
+docker.io/copyparty/ac

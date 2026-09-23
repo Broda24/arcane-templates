@@ -93,6 +93,28 @@
       "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/trilium-notes/.env.example",
       "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/trilium-notes",
       "tags": ["notes", "knowledge-base", "trilium"]
+    },
+    {
+      "id": "paperless-ngx",
+      "name": "Paperless-ngx",
+      "description": "DE: Dokumentenarchiv mit OCR, Volltextsuche und Office-Import. Vor dem Deploy Datenbankpasswort und Secret Key setzen. / EN: Document archive with OCR, full-text search, and Office import. Set a database password and secret key before deployment.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/paperless-ngx/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/paperless-ngx/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/paperless-ngx",
+      "tags": ["documents", "ocr", "paperless-ngx"]
+    },
+    {
+      "id": "copyparty",
+      "name": "Copyparty",
+      "description": "DE: Dateiserver mit Weboberfläche und Anmeldung. Vor dem Deploy ein individuelles Passwort setzen. / EN: File server with web UI and login. Set a unique password before deployment.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/copyparty/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/copyparty/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/copyparty",
+      "tags": ["files", "file-server", "copyparty"]
     }
   ]
 }

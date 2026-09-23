@@ -1,0 +1,25 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/copyparty.svg
+  urls:
+    - https://github.com/9001/copyparty
+    - https://hub.docker.com/r/copyparty/ac
+
+services:
+  copyparty:
+    image: docker.io/copyparty/ac:latest
+    user: "1000:1000"
+    ports:
+      - "${COPYPARTY_PORT:-3923}:3923"
+    volumes:
+      - copyparty-files:/w
+      - copyparty-config:/cfg
+    command:
+      - -a
+      - "${COPYPARTY_USER:-share}:${COPYPARTY_PASSWORD:?Set COPYPARTY_PASSWORD in the project .env before deploying}"
+      - -v
+      - "/w::rw,${COPYPARTY_USER:-share}"
+    restart: unless-stopped
+
+volumes:
+  copyparty-files:
+  copyparty-config:
