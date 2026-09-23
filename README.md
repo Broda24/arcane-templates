@@ -20,31 +20,33 @@ Some apps need a setting before deployment or additional mounts after deployment
 
 ### Templates
 
-- Home Assistant — local smart-home hub
-- Jellyfin — media server
-- Immich — photo and video library
-- Syncthing — peer-to-peer file synchronization
-- Uptime Kuma — uptime monitoring
-- ntfy — self-hosted push notifications
-- Trilium Notes — personal knowledge base
-- Paperless-ngx — document archive with OCR
-- Copyparty — authenticated file server
-- Vaultwarden — self-hosted Bitwarden-compatible password server
-- AdGuard Home — network-wide DNS filtering
-- Nextcloud — file sync and collaboration platform
-- Mealie — recipe manager and meal planner
-- Actual Budget — personal finance and budgeting
-- Gitea — self-hosted Git service
-- Audiobookshelf — audiobook and podcast server
-- Navidrome — personal music streaming
-- Node-RED — visual automation flows
-- n8n — workflow automation
-- SearXNG — privacy-respecting metasearch
-- Ollama — local model runner
-- Homebox — home inventory
-- Zigbee2MQTT — Zigbee-to-MQTT bridge
-- Eclipse Mosquitto — MQTT broker
-- Nginx — simple first-deployment test
+| Template | Description |
+| --- | --- |
+| [Home Assistant](templates/home-assistant/) | Local smart-home hub |
+| [Jellyfin](templates/jellyfin/) | Media server |
+| [Immich](templates/immich/) | Photo and video library |
+| [Syncthing](templates/syncthing/) | Peer-to-peer file synchronization |
+| [Uptime Kuma](templates/uptime-kuma/) | Uptime monitoring |
+| [ntfy](templates/ntfy/) | Self-hosted push notifications |
+| [Trilium Notes](templates/trilium-notes/) | Personal knowledge base |
+| [Paperless-ngx](templates/paperless-ngx/) | Document archive with OCR |
+| [Copyparty](templates/copyparty/) | Authenticated file server |
+| [Vaultwarden](templates/vaultwarden/) | Bitwarden-compatible password server |
+| [AdGuard Home](templates/adguard-home/) | Network-wide DNS filtering |
+| [Nextcloud](templates/nextcloud/) | File sync and collaboration platform |
+| [Mealie](templates/mealie/) | Recipe manager and meal planner |
+| [Actual Budget](templates/actual-budget/) | Personal finance and budgeting |
+| [Gitea](templates/gitea/) | Self-hosted Git service |
+| [Audiobookshelf](templates/audiobookshelf/) | Audiobook and podcast server |
+| [Navidrome](templates/navidrome/) | Personal music streaming |
+| [Node-RED](templates/node-red/) | Visual automation flows |
+| [n8n](templates/n8n/) | Workflow automation |
+| [SearXNG](templates/searxng/) | Privacy-respecting metasearch |
+| [Ollama](templates/ollama/) | Local model runner |
+| [Homebox](templates/homebox/) | Home inventory |
+| [Zigbee2MQTT](templates/zigbee2mqtt/) | Zigbee-to-MQTT bridge |
+| [Eclipse Mosquitto](templates/mosquitto/) | MQTT broker |
+| [Nginx](templates/nginx-welcome/) | Simple first-deployment test |
 
 ### Image and security policy
 
@@ -86,31 +88,33 @@ Einige Apps brauchen vor dem Deploy eine Einstellung oder danach zusätzliche Mo
 
 ### Vorlagen
 
-- Home Assistant — lokale Smart-Home-Zentrale
-- Jellyfin — Medienserver
-- Immich — Foto- und Videosammlung
-- Syncthing — Peer-to-Peer-Dateisynchronisierung
-- Uptime Kuma — Verfügbarkeitsüberwachung
-- ntfy — eigener Push-Benachrichtigungsserver
-- Trilium Notes — persönliche Wissensdatenbank
-- Paperless-ngx — Dokumentenarchiv mit OCR
-- Copyparty — Dateiserver mit Anmeldung
-- Vaultwarden — eigener Bitwarden-kompatibler Passwortserver
-- AdGuard Home — DNS-Filter fürs Heimnetz
-- Nextcloud — Dateiablage und Zusammenarbeit
-- Mealie — Rezeptverwaltung und Essensplanung
-- Actual Budget — Haushaltsbudget und Finanzplanung
-- Gitea — eigener Git-Dienst
-- Audiobookshelf — Hörbuch- und Podcastserver
-- Navidrome — Musikstreaming aus der eigenen Sammlung
-- Node-RED — visuelle Automatisierungen
-- n8n — Workflow-Automatisierung
-- SearXNG — datenschutzfreundliche Metasuche
-- Ollama — lokale Sprachmodelle
-- Homebox — Inventar für Haushalt und Geräte
-- Zigbee2MQTT — Zigbee-zu-MQTT-Bridge
-- Eclipse Mosquitto — MQTT-Broker
-- Nginx — einfacher Test für den ersten Deploy
+| Vorlage | Beschreibung |
+| --- | --- |
+| [Home Assistant](templates/home-assistant/) | Lokale Smart-Home-Zentrale |
+| [Jellyfin](templates/jellyfin/) | Medienserver |
+| [Immich](templates/immich/) | Foto- und Videosammlung |
+| [Syncthing](templates/syncthing/) | Peer-to-Peer-Dateisynchronisierung |
+| [Uptime Kuma](templates/uptime-kuma/) | Verfügbarkeitsüberwachung |
+| [ntfy](templates/ntfy/) | Eigener Push-Benachrichtigungsserver |
+| [Trilium Notes](templates/trilium-notes/) | Persönliche Wissensdatenbank |
+| [Paperless-ngx](templates/paperless-ngx/) | Dokumentenarchiv mit OCR |
+| [Copyparty](templates/copyparty/) | Dateiserver mit Anmeldung |
+| [Vaultwarden](templates/vaultwarden/) | Bitwarden-kompatibler Passwortserver |
+| [AdGuard Home](templates/adguard-home/) | DNS-Filter fürs Heimnetz |
+| [Nextcloud](templates/nextcloud/) | Dateiablage und Zusammenarbeit |
+| [Mealie](templates/mealie/) | Rezeptverwaltung und Essensplanung |
+| [Actual Budget](templates/actual-budget/) | Haushaltsbudget und Finanzplanung |
+| [Gitea](templates/gitea/) | Eigener Git-Dienst |
+| [Audiobookshelf](templates/audiobookshelf/) | Hörbuch- und Podcastserver |
+| [Navidrome](templates/navidrome/) | Musikstreaming aus der eigenen Sammlung |
+| [Node-RED](templates/node-red/) | Visuelle Automatisierungen |
+| [n8n](templates/n8n/) | Workflow-Automatisierung |
+| [SearXNG](templates/searxng/) | Datenschutzfreundliche Metasuche |
+| [Ollama](templates/ollama/) | Lokale Sprachmodelle |
+| [Homebox](templates/homebox/) | Inventar für Haushalt und Geräte |
+| [Zigbee2MQTT](templates/zigbee2mqtt/) | Zigbee-zu-MQTT-Bridge |
+| [Eclipse Mosquitto](templates/mosquitto/) | MQTT-Broker |
+| [Nginx](templates/nginx-welcome/) | Einfacher Test für den ersten Deploy |
 
 ### Image- und Sicherheitsregeln
 
