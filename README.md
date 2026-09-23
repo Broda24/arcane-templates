@@ -43,6 +43,8 @@ Arcane can check and apply image updates for deployed projects. This is separate
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor and AI instructions. Registry entries point to the `main` branch.
 
+Contributors without repository write access can fork the project and open a pull request. The `main` branch requires a pull request and a passing `validate` check for normal merges. Repository admins can bypass branch protection; currently the owner account (also used by the authorized AI) is the only admin.
+
 ## Deutsch
 
 Community-gepflegte Arcane-Compose-Vorlagen für beliebte Self-Hosting-Apps. Die Vorlagen verwenden Images, die vom jeweiligen Upstream-Projekt veröffentlicht werden, enthalten persistente Datenablagen und `x-arcane`-Metadaten und werden per GitHub Actions geprüft. Beiträge sind als Pull Request willkommen.
@@ -83,3 +85,5 @@ Einige Apps brauchen vor dem Deploy eine Einstellung oder danach zusätzliche Mo
 Arcane kann Image-Updates laufender Projekte prüfen und einspielen. Das ist unabhängig von Änderungen der Vorlagen in diesem Repository. Änderungen an Compose, Storage, Konfiguration oder Abhängigkeiten bitte als Pull Request einreichen. GitHub Actions prüfen die Registry und führen `docker compose config` für jede Vorlage aus.
 
 Hinweise für Beiträge und KI stehen in [CONTRIBUTING.md](CONTRIBUTING.md). Die Registry-Einträge verweisen auf den Branch `main`.
+
+Mitwirkende ohne Schreibrechte können das Repo forken und einen Pull Request erstellen. Für normale Merges verlangt der Branch `main` einen Pull Request und einen erfolgreichen `validate`-Check. Repository-Admins können den Schutz umgehen; aktuell ist nur das Owner-Konto (auch vom autorisierten KI-Zugang verwendet) Admin.
