@@ -30,6 +30,7 @@ GitHub-Repository: [`Broda24/arcane-templates`](https://github.com/Broda24/arcan
 - Keine Passwörter, Tokens oder sonstige echten Secrets einchecken. `.env.example` enthält nur harmlose Beispielwerte; erforderliche Secrets müssen vor dem Deploy gesetzt werden.
 - Bevorzugt stabile Versions-Tags statt `latest` einsetzen. Tags bei einem Update prüfen und die Änderung als PR einreichen.
 - Jede Vorlage hat `docker-compose.yml`, `.env.example` und eine kurze README mit Ports, Setup-Schritten und Besonderheiten.
+- Jede Vorlage soll projektweite Arcane-Metadaten (`x-arcane.icon` und `x-arcane.urls`) mit Icon, Projekt-Homepage und Upstream-Repository oder Docker-Hub-Seite setzen.
 - Keine unnötigen privilegierten Container, Docker-Socket-Mounts oder Host-Netzwerkmodi.
 
 ## Geplante nächste Tests

@@ -70,6 +70,15 @@ def main() -> None:
             fail(f"{template_id}: env_url zeigt nicht auf die .env.example dieser Vorlage.")
 
         compose_text = compose_path.read_text(encoding="utf-8")
+        if not re.search(r"^x-arcane:\s*$", compose_text, flags=re.MULTILINE):
+            fail(f"{template_id}: projektweite x-arcane-Metadaten fehlen.")
+        if not re.search(r"^  icon:\s+https://", compose_text, flags=re.MULTILINE):
+            fail(f"{template_id}: x-arcane.icon muss eine HTTPS-URL sein.")
+        if not re.search(r"^  urls:\s*$", compose_text, flags=re.MULTILINE) or len(
+            re.findall(r"^    - https://", compose_text, flags=re.MULTILINE)
+        ) < 2:
+            fail(f"{template_id}: x-arcane.urls braucht mindestens zwei HTTPS-Links.")
+
         images = re.findall(r"^\s*image:\s*([^\s#]+)", compose_text, flags=re.MULTILINE)
         if not images:
             fail(f"{template_id}: keine expliziten Image-Referenzen gefunden.")

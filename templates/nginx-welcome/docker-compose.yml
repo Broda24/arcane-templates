@@ -1,3 +1,9 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/nginx.svg
+  urls:
+    - https://nginx.org/
+    - https://hub.docker.com/_/nginx
+
 services:
   nginx:
     image: nginx:alpine
