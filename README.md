@@ -1,6 +1,6 @@
 # Arcane Template Registry
 
-Private Homelab-Sammlung von Compose-Vorlagen für Arcane. Als Image-Quelle sind Docker Official Images auf Docker Hub vorgesehen. Neue Vorlagen werden als Pull Request geprüft, bevor sie in Arcane erscheinen.
+Homelab-Sammlung von Compose-Vorlagen für Arcane. Als Image-Quelle sind Docker Official Images auf Docker Hub vorgesehen. Neue Vorlagen werden als Pull Request geprüft, bevor sie in Arcane erscheinen.
 
 ## In Arcane einbinden
 
