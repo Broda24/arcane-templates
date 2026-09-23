@@ -16,7 +16,7 @@ REQUIRED_TEMPLATE_FIELDS = {
     "env_url", "documentation_url", "tags"
 }
 IMAGE_REFERENCE = re.compile(
-    r"^(?:(docker\.io|ghcr\.io)/)?([a-z0-9][a-z0-9._/-]*):"
+    r"^(?:(docker\.io|ghcr\.io|docker\.gitea\.com|docker\.n8n\.io)/)?([a-z0-9][a-z0-9._/-]*):"
     r"([A-Za-z0-9_][A-Za-z0-9_.-]*)(?:@sha256:[a-f0-9]{64})?$"
 )
 

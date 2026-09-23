@@ -1,0 +1,24 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/navidrome.svg
+  urls:
+    - https://www.navidrome.org/
+    - https://github.com/navidrome/navidrome
+
+services:
+  navidrome:
+    image: docker.io/deluan/navidrome:latest
+    user: "${PUID:-1000}:${PGID:-1000}"
+    ports:
+      - "${NAVIDROME_PORT:-4533}:4533"
+    environment:
+      ND_SCANSCHEDULE: ${NAVIDROME_SCAN_SCHEDULE:-1h}
+      ND_LOGLEVEL: info
+      ND_BASEURL: ${NAVIDROME_BASEURL:-}
+      TZ: ${TZ:-Europe/Berlin}
+    volumes:
+      - navidrome-data:/data
+      - ./music:/music:ro
+    restart: unless-stopped
+
+volumes:
+  navidrome-data:

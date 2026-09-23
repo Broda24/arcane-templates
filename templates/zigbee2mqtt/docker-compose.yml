@@ -1,0 +1,25 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/zigbee2mqtt.svg
+  urls:
+    - https://www.zigbee2mqtt.io/
+    - https://github.com/Koenkk/zigbee2mqtt
+
+services:
+  zigbee2mqtt:
+    image: ghcr.io/koenkk/zigbee2mqtt:latest
+    ports:
+      - "${ZIGBEE2MQTT_BIND:-127.0.0.1}:${ZIGBEE2MQTT_PORT:-8080}:8080"
+    devices:
+      - "${ZIGBEE_ADAPTER:-/dev/ttyACM0}:/dev/ttyACM0"
+    environment:
+      TZ: ${TZ:-Europe/Berlin}
+      ZIGBEE2MQTT_CONFIG_SERIAL_PORT: /dev/ttyACM0
+      ZIGBEE2MQTT_CONFIG_MQTT_SERVER: ${ZIGBEE_MQTT_SERVER:?Set ZIGBEE_MQTT_SERVER in the project .env}
+      ZIGBEE2MQTT_CONFIG_MQTT_USER: ${ZIGBEE_MQTT_USER:?Set ZIGBEE_MQTT_USER in the project .env}
+      ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: ${ZIGBEE_MQTT_PASSWORD:?Set ZIGBEE_MQTT_PASSWORD in the project .env}
+    volumes:
+      - zigbee2mqtt-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  zigbee2mqtt-data:

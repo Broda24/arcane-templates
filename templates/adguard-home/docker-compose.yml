@@ -1,0 +1,22 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/adguard-home.svg
+  urls:
+    - https://adguard.com/en/adguard-home/overview.html
+    - https://github.com/AdguardTeam/AdGuardHome
+
+services:
+  adguard-home:
+    image: docker.io/adguard/adguardhome:latest
+    ports:
+      - "${ADGUARD_DNS_PORT:-53}:53/tcp"
+      - "${ADGUARD_DNS_PORT:-53}:53/udp"
+      - "${ADGUARD_SETUP_PORT:-3000}:3000/tcp"
+      - "${ADGUARD_WEB_PORT:-3001}:80/tcp"
+    volumes:
+      - adguard-work:/opt/adguardhome/work
+      - adguard-conf:/opt/adguardhome/conf
+    restart: unless-stopped
+
+volumes:
+  adguard-work:
+  adguard-conf:

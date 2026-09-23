@@ -1,0 +1,27 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/mosquitto.svg
+  urls:
+    - https://mosquitto.org/
+    - https://github.com/eclipse-mosquitto/mosquitto
+
+services:
+  mosquitto:
+    image: docker.io/eclipse-mosquitto:2
+    ports:
+      - "${MOSQUITTO_BIND:-0.0.0.0}:${MOSQUITTO_PORT:-1883}:1883"
+    environment:
+      MQTT_USER: ${MQTT_USER:?Set MQTT_USER in the project .env}
+      MQTT_PASSWORD: ${MQTT_PASSWORD:?Set MQTT_PASSWORD in the project .env}
+    command:
+      - /bin/sh
+      - -c
+      - |
+        printf '%s\n%s\n' "$$MQTT_PASSWORD" "$$MQTT_PASSWORD" | mosquitto_passwd -c /mosquitto/data/passwd "$$MQTT_USER"
+        printf '%s\n' 'listener 1883' 'allow_anonymous false' 'password_file /mosquitto/data/passwd' 'persistence true' 'persistence_location /mosquitto/data/' > /tmp/mosquitto.conf
+        exec mosquitto -c /tmp/mosquitto.conf
+    volumes:
+      - mosquitto-data:/mosquitto/data
+    restart: unless-stopped
+
+volumes:
+  mosquitto-data:

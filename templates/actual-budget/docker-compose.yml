@@ -1,0 +1,17 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/actual-budget.svg
+  urls:
+    - https://actualbudget.org/
+    - https://github.com/actualbudget/actual
+
+services:
+  actual-budget:
+    image: docker.io/actualbudget/actual-server:latest
+    ports:
+      - "${ACTUAL_BIND:-127.0.0.1}:${ACTUAL_PORT:-5006}:5006"
+    volumes:
+      - actual-data:/data
+    restart: unless-stopped
+
+volumes:
+  actual-data:

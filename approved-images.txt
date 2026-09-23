@@ -1,5 +1,6 @@
 # Exact upstream-published image repositories approved for this registry.
-# docker.io = Docker Hub; ghcr.io is used only where the upstream project publishes there.
+# Docker Hub is preferred. GHCR and vendor registries are allowed only where
+# the upstream publishes its official image there and no suitable official Hub image exists.
 docker.io/library/nginx
 docker.io/homeassistant/home-assistant
 docker.io/jellyfin/jellyfin
@@ -16,3 +17,20 @@ docker.io/library/postgres
 docker.io/gotenberg/gotenberg
 docker.io/apache/tika
 docker.io/copyparty/ac
+docker.io/vaultwarden/server
+docker.io/adguard/adguardhome
+docker.io/library/nextcloud
+docker.io/library/mariadb
+docker.io/library/redis
+ghcr.io/mealie-recipes/mealie
+docker.io/actualbudget/actual-server
+docker.gitea.com/gitea
+ghcr.io/advplyr/audiobookshelf
+docker.io/deluan/navidrome
+docker.io/nodered/node-red
+docker.n8n.io/n8nio/n8n
+docker.io/searxng/searxng
+docker.io/ollama/ollama
+ghcr.io/sysadminsmedia/homebox
+ghcr.io/koenkk/zigbee2mqtt
+docker.io/eclipse-mosquitto

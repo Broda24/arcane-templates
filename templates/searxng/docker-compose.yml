@@ -1,0 +1,28 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/searxng.svg
+  urls:
+    - https://searxng.org/
+    - https://github.com/searxng/searxng
+
+services:
+  searxng:
+    image: docker.io/searxng/searxng:latest
+    ports:
+      - "${SEARXNG_BIND:-127.0.0.1}:${SEARXNG_PORT:-8888}:8080"
+    configs:
+      - source: searxng-settings
+        target: /etc/searxng/settings.yml
+    volumes:
+      - searxng-data:/var/cache/searxng
+    restart: unless-stopped
+
+configs:
+  searxng-settings:
+    content: |
+      use_default_settings: true
+      server:
+        secret_key: "${SEARXNG_SECRET:?Set SEARXNG_SECRET in the project .env}"
+        base_url: "${SEARXNG_BASE_URL:-http://localhost:8888/}"
+
+volumes:
+  searxng-data:

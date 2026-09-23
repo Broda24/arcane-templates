@@ -1,0 +1,21 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/homebox.svg
+  urls:
+    - https://homebox.software/
+    - https://github.com/sysadminsmedia/homebox
+
+services:
+  homebox:
+    image: ghcr.io/sysadminsmedia/homebox:latest
+    ports:
+      - "${HOMEBOX_BIND:-127.0.0.1}:${HOMEBOX_PORT:-7745}:7745"
+    environment:
+      HBOX_LOG_LEVEL: info
+      HBOX_AUTH_API_KEY_PEPPER: ${HOMEBOX_API_KEY_PEPPER:?Set HOMEBOX_API_KEY_PEPPER in the project .env}
+      HBOX_WEB_MAX_UPLOAD_SIZE: ${HOMEBOX_MAX_UPLOAD_SIZE:-10}
+    volumes:
+      - homebox-data:/data
+    restart: unless-stopped
+
+volumes:
+  homebox-data:

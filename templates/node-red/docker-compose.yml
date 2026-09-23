@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/node-red.svg
+  urls:
+    - https://nodered.org/
+    - https://github.com/node-red/node-red-docker
+
+services:
+  node-red:
+    image: docker.io/nodered/node-red:latest-minimal
+    ports:
+      - "${NODE_RED_BIND:-127.0.0.1}:${NODE_RED_PORT:-1880}:1880"
+    environment:
+      TZ: ${TZ:-Europe/Berlin}
+    volumes:
+      - node-red-data:/data
+    restart: unless-stopped
+
+volumes:
+  node-red-data:

@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/vaultwarden.svg
+  urls:
+    - https://github.com/dani-garcia/vaultwarden
+    - https://github.com/dani-garcia/vaultwarden/wiki
+
+services:
+  vaultwarden:
+    image: docker.io/vaultwarden/server:latest
+    ports:
+      - "${VAULTWARDEN_BIND:-127.0.0.1}:${VAULTWARDEN_PORT:-8088}:80"
+    volumes:
+      - vaultwarden-data:/data
+    environment:
+      SIGNUPS_ALLOWED: "${VAULTWARDEN_SIGNUPS_ALLOWED:-false}"
+      WEBSOCKET_ENABLED: "true"
+    restart: unless-stopped
+
+volumes:
+  vaultwarden-data:

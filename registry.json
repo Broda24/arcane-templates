@@ -115,6 +115,171 @@
       "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/copyparty/.env.example",
       "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/copyparty",
       "tags": ["files", "file-server", "copyparty"]
+    },
+    {
+      "id": "vaultwarden",
+      "name": "Vaultwarden",
+      "description": "DE: Leichter Bitwarden-kompatibler Passwortserver. Registrierungen sind standardmäßig deaktiviert; HTTPS für Fernzugriff erforderlich. / EN: Lightweight Bitwarden-compatible password server. Signups are disabled by default; HTTPS is required for remote access.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/vaultwarden/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/vaultwarden/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/vaultwarden",
+      "tags": ["passwords", "vaultwarden", "security"]
+    },
+    {
+      "id": "adguard-home",
+      "name": "AdGuard Home",
+      "description": "DE: DNS-Filter fürs Heimnetz mit Websetup; DNS-Port 53 muss auf dem Host frei sein. / EN: Home-network DNS filtering with a web setup; host port 53 must be available.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/adguard-home/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/adguard-home/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/adguard-home",
+      "tags": ["dns", "adblock", "network"]
+    },
+    {
+      "id": "nextcloud",
+      "name": "Nextcloud",
+      "description": "DE: Private Dateiablage mit MariaDB und Redis. Vor dem Deploy eigene Datenbank- und Admin-Passwörter setzen. / EN: Private file cloud with MariaDB and Redis. Set unique database and admin passwords before deployment.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/nextcloud/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/nextcloud/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/nextcloud",
+      "tags": ["cloud", "files", "collaboration"]
+    },
+    {
+      "id": "mealie",
+      "name": "Mealie",
+      "description": "DE: Rezeptverwaltung und Essensplanung. Registrierung ist anfangs für das Administratorkonto aktiviert. / EN: Recipe manager and meal planner. Signup is initially enabled to create the administrator account.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/mealie/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/mealie/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/mealie",
+      "tags": ["recipes", "food", "planning"]
+    },
+    {
+      "id": "actual-budget",
+      "name": "Actual Budget",
+      "description": "DE: Privates Haushaltsbuch mit lokalem Datenbestand; Webzugriff standardmäßig nur über localhost. / EN: Private budgeting app with local data; web access is bound to localhost by default.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/actual-budget/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/actual-budget/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/actual-budget",
+      "tags": ["budget", "finance", "privacy"]
+    },
+    {
+      "id": "gitea",
+      "name": "Gitea",
+      "description": "DE: Eigener Git-Dienst mit Weboberfläche und SSH. Nutzt das offizielle Image aus der Gitea-Registry. / EN: Self-hosted Git service with web UI and SSH, using Gitea's official container registry.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/gitea/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/gitea/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/gitea",
+      "tags": ["git", "development", "code"]
+    },
+    {
+      "id": "audiobookshelf",
+      "name": "Audiobookshelf",
+      "description": "DE: Hörbuch- und Podcastserver. Medienordner werden schreibgeschützt eingebunden. / EN: Audiobook and podcast server with read-only media folder mounts.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/audiobookshelf/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/audiobookshelf/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/audiobookshelf",
+      "tags": ["audio", "podcasts", "audiobooks"]
+    },
+    {
+      "id": "navidrome",
+      "name": "Navidrome",
+      "description": "DE: Musikserver für die eigene Sammlung; Musikordner wird schreibgeschützt eingebunden. / EN: Personal music server with a read-only music library mount.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/navidrome/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/navidrome/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/navidrome",
+      "tags": ["music", "audio", "streaming"]
+    },
+    {
+      "id": "node-red",
+      "name": "Node-RED",
+      "description": "DE: Visuelle Automatisierung mit persistenten Flows; Editor-Port standardmäßig nur an localhost gebunden. / EN: Visual automation with persistent flows; editor port is bound to localhost by default.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/node-red/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/node-red/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/node-red",
+      "tags": ["automation", "flows", "iot"]
+    },
+    {
+      "id": "n8n",
+      "name": "n8n",
+      "description": "DE: Workflow-Automatisierung mit dauerhaftem Verschlüsselungsschlüssel; Webeditor standardmäßig nur lokal erreichbar. / EN: Workflow automation with a persistent encryption key; editor is local-only by default.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/n8n/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/n8n/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/n8n",
+      "tags": ["automation", "workflows", "integrations"]
+    },
+    {
+      "id": "searxng",
+      "name": "SearXNG",
+      "description": "DE: Datenschutzfreundliche Metasuche mit erforderlichem Secret und standardmäßig lokalem Webzugriff. / EN: Privacy-respecting metasearch with a required secret and localhost-only web access by default.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/searxng/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/searxng/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/searxng",
+      "tags": ["search", "privacy", "metasearch"]
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama",
+      "description": "DE: Lokale Sprachmodelle mit persistentem Modell-Volume; API standardmäßig nur an localhost gebunden. / EN: Local LLM runner with persistent model storage; API is bound to localhost by default.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/ollama/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/ollama/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/ollama",
+      "tags": ["ai", "llm", "local"]
+    },
+    {
+      "id": "homebox",
+      "name": "Homebox",
+      "description": "DE: Inventarverwaltung für Haushalt und Geräte; benötigt individuellen API-Key-Pepper und ist standardmäßig lokal gebunden. / EN: Home and asset inventory; requires a unique API key pepper and binds to localhost by default.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/homebox/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/homebox/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/homebox",
+      "tags": ["inventory", "home", "assets"]
+    },
+    {
+      "id": "zigbee2mqtt",
+      "name": "Zigbee2MQTT",
+      "description": "DE: Zigbee-zu-MQTT-Bridge; benötigt einen kompatiblen USB-/seriellen Koordinator und MQTT-Broker. / EN: Zigbee-to-MQTT bridge; requires a compatible serial coordinator and MQTT broker.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/zigbee2mqtt/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/zigbee2mqtt/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/zigbee2mqtt",
+      "tags": ["zigbee", "mqtt", "home-automation"]
+    },
+    {
+      "id": "mosquitto",
+      "name": "Eclipse Mosquitto",
+      "description": "DE: MQTT-Broker mit Anmeldung und deaktiviertem anonymem Zugriff. Vor dem Deploy ein starkes Passwort setzen. / EN: MQTT broker with authentication and anonymous access disabled. Set a strong password before deployment.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/mosquitto/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/mosquitto/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/mosquitto",
+      "tags": ["mqtt", "iot", "broker"]
     }
   ]
 }

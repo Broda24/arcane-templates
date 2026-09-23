@@ -20,6 +20,6 @@ jobs:
           for file in templates/*/docker-compose.yml; do
             template_dir="$(dirname "$file")"
             cp "$template_dir/.env.example" "$template_dir/.env"
-            DB_PASSWORD=ci-only-validation-placeholder PAPERLESS_DB_PASSWORD=ci-only-validation-placeholder PAPERLESS_SECRET_KEY=ci-only-validation-placeholder COPYPARTY_PASSWORD=ci-only-validation-placeholder docker compose --project-directory "$template_dir" --env-file "$template_dir/.env" -f "$file" config --quiet
+            DB_PASSWORD=ci-only-validation-placeholder PAPERLESS_DB_PASSWORD=ci-only-validation-placeholder PAPERLESS_SECRET_KEY=ci-only-validation-placeholder COPYPARTY_PASSWORD=ci-only-validation-placeholder NEXTCLOUD_DB_PASSWORD=ci-only-validation-placeholder NEXTCLOUD_DB_ROOT_PASSWORD=ci-only-validation-placeholder NEXTCLOUD_ADMIN_PASSWORD=ci-only-validation-placeholder N8N_ENCRYPTION_KEY=ci-only-validation-placeholder SEARXNG_SECRET=ci-only-validation-placeholder HOMEBOX_API_KEY_PEPPER=ci-only-validation-placeholder MQTT_USER=ci-user MQTT_PASSWORD=ci-only-validation-placeholder ZIGBEE_MQTT_SERVER=mqtt://mqtt:1883 ZIGBEE_MQTT_USER=ci-user ZIGBEE_MQTT_PASSWORD=ci-only-validation-placeholder docker compose --project-directory "$template_dir" --env-file "$template_dir/.env" -f "$file" config --quiet
             rm "$template_dir/.env"
           done

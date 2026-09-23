@@ -29,14 +29,30 @@ Some apps need a setting before deployment or additional mounts after deployment
 - Trilium Notes — personal knowledge base
 - Paperless-ngx — document archive with OCR
 - Copyparty — authenticated file server
+- Vaultwarden — self-hosted Bitwarden-compatible password server
+- AdGuard Home — network-wide DNS filtering
+- Nextcloud — file sync and collaboration platform
+- Mealie — recipe manager and meal planner
+- Actual Budget — personal finance and budgeting
+- Gitea — self-hosted Git service
+- Audiobookshelf — audiobook and podcast server
+- Navidrome — personal music streaming
+- Node-RED — visual automation flows
+- n8n — workflow automation
+- SearXNG — privacy-respecting metasearch
+- Ollama — local model runner
+- Homebox — home inventory
+- Zigbee2MQTT — Zigbee-to-MQTT bridge
+- Eclipse Mosquitto — MQTT broker
 - Nginx — simple first-deployment test
 
 ### Image and security policy
 
 - Use only container images published by the app's upstream project. No third-party repackaged images or locally built images.
 - Approved image repositories are listed in [`approved-images.txt`](approved-images.txt); CI rejects anything not on that list.
-- Images come from Docker Hub, except Immich, whose upstream publishes its official images on GHCR and has no official Docker Hub image.
+- Docker Hub is preferred. GHCR and official vendor registries are used only where the upstream publishes its official image there and no suitable official Docker Hub image exists.
 - Never commit real passwords or tokens. Set required secrets before deploying. Keep ntfy behind trusted access controls; do not expose an unauthenticated server to the public Internet.
+- Keep sensitive or unauthenticated services (including Vaultwarden, Node-RED, n8n, SearXNG, Ollama, Homebox, and Zigbee2MQTT) on trusted networks or behind an authenticated HTTPS reverse proxy.
 - Review ports, storage, device access, and backup needs in each template README before deployment.
 - Dozzle is intentionally not included yet: its standard setup requires Docker API access, which is root-equivalent. The registry does not mount the Docker socket into application containers.
 
@@ -79,14 +95,30 @@ Einige Apps brauchen vor dem Deploy eine Einstellung oder danach zusätzliche Mo
 - Trilium Notes — persönliche Wissensdatenbank
 - Paperless-ngx — Dokumentenarchiv mit OCR
 - Copyparty — Dateiserver mit Anmeldung
+- Vaultwarden — eigener Bitwarden-kompatibler Passwortserver
+- AdGuard Home — DNS-Filter fürs Heimnetz
+- Nextcloud — Dateiablage und Zusammenarbeit
+- Mealie — Rezeptverwaltung und Essensplanung
+- Actual Budget — Haushaltsbudget und Finanzplanung
+- Gitea — eigener Git-Dienst
+- Audiobookshelf — Hörbuch- und Podcastserver
+- Navidrome — Musikstreaming aus der eigenen Sammlung
+- Node-RED — visuelle Automatisierungen
+- n8n — Workflow-Automatisierung
+- SearXNG — datenschutzfreundliche Metasuche
+- Ollama — lokale Sprachmodelle
+- Homebox — Inventar für Haushalt und Geräte
+- Zigbee2MQTT — Zigbee-zu-MQTT-Bridge
+- Eclipse Mosquitto — MQTT-Broker
 - Nginx — einfacher Test für den ersten Deploy
 
 ### Image- und Sicherheitsregeln
 
 - Nur Images verwenden, die vom jeweiligen App-Upstream veröffentlicht werden. Keine fremden neu verpackten oder lokal gebauten Images.
 - Die freigegebenen Image-Repositories stehen in [`approved-images.txt`](approved-images.txt); CI weist nicht freigegebene Images zurück.
-- Die Images kommen von Docker Hub. Ausnahme ist Immich: Das Upstream-Projekt veröffentlicht seine offiziellen Images auf GHCR und bietet kein offizielles Docker-Hub-Image an.
+- Docker Hub wird bevorzugt. GHCR und offizielle Hersteller-Registries sind nur zugelassen, wenn der Upstream sein offizielles Image dort veröffentlicht und kein passendes offizielles Docker-Hub-Image anbietet.
 - Keine echten Passwörter oder Tokens einchecken. Erforderliche Secrets vor dem Deploy setzen. ntfy nur mit vertrauenswürdigen Zugriffskontrollen betreiben und nicht ungeschützt öffentlich bereitstellen.
+- Sensible oder nicht standardmäßig geschützte Dienste (u. a. Vaultwarden, Node-RED, n8n, SearXNG, Ollama, Homebox und Zigbee2MQTT) nur in vertrauenswürdigen Netzen oder hinter einem authentifizierten HTTPS-Reverse-Proxy betreiben.
 - Vor dem Deploy die README der Vorlage zu Ports, Speicherung, Gerätezugriff und Backups beachten.
 - Dozzle ist vorerst nicht enthalten: Die Standardkonfiguration benötigt Docker-API-Zugriff, der root-äquivalent ist. Diese Registry mountet den Docker-Socket nicht direkt in App-Container.
 

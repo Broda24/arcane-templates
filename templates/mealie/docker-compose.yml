@@ -1,0 +1,22 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/mealie.svg
+  urls:
+    - https://mealie.io/
+    - https://github.com/mealie-recipes/mealie
+
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:latest
+    ports:
+      - "${MEALIE_PORT:-9925}:9000"
+    volumes:
+      - mealie-data:/app/data
+    environment:
+      ALLOW_SIGNUP: "${MEALIE_ALLOW_SIGNUP:-true}"
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Europe/Berlin}
+    restart: unless-stopped
+
+volumes:
+  mealie-data:

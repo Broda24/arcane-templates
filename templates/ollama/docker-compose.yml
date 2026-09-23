@@ -1,0 +1,17 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/ollama.svg
+  urls:
+    - https://ollama.com/
+    - https://github.com/ollama/ollama
+
+services:
+  ollama:
+    image: docker.io/ollama/ollama:latest
+    ports:
+      - "${OLLAMA_BIND:-127.0.0.1}:${OLLAMA_PORT:-11434}:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama-models:
