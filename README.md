@@ -1,43 +1,85 @@
 # Arcane Template Registry
 
-Homelab-Sammlung von Compose-Vorlagen für Arcane. Erlaubt sind Images, die vom jeweiligen App-Projekt gepflegt und in `approved-images.txt` freigegeben sind. Die Images kommen von Docker Hub; Immich nutzt seine offiziellen Upstream-Images von GHCR, da es kein offizielles Immich-Image auf Docker Hub gibt. Neue Vorlagen werden als Pull Request geprüft, bevor sie in Arcane erscheinen.
+[English](#english) · [Deutsch](#deutsch)
 
-## In Arcane einbinden
+Community-curated Arcane Compose templates for popular self-hosted apps. Templates use images published by their upstream projects, include persistent storage and `x-arcane` metadata, and are validated with GitHub Actions. Contributions are welcome through pull requests.
 
-GitHub-Repository: [`Broda24/arcane-templates`](https://github.com/Broda24/arcane-templates)
+## English
 
-1. In Arcane **Customization → Templates → Add Registry** öffnen.
-2. Diese Registry-URL hinzufügen:
+### Add this registry to Arcane
 
-   ```text
-   https://raw.githubusercontent.com/Broda24/arcane-templates/main/registry.json
-   ```
+In Arcane, open **Customization → Templates → Add Registry** and add:
 
-3. Eine Vorlage wählen, **Create Project** klicken und das Projekt deployen.
-4. Die jeweilige Weboberfläche unter Host-IP und Port aus der Vorlagen-README öffnen.
+```text
+https://raw.githubusercontent.com/Broda24/arcane-templates/main/registry.json
+```
 
-**Create Project** erstellt in Arcane das Compose-Projekt. Zum tatsächlichen Starten ist danach noch der Deploy-/Start-Schritt nötig. Einige Apps benötigen vor dem Deploy noch Secrets oder Medien-/Geräte-Mounts; das steht in der jeweiligen README.
+Choose a template and select **Create Project**. Arcane creates a Compose project; deploy/start it to run the containers. Open the app at the host address and port documented in that template's README.
 
-## Repository vorbereiten
+Some apps need a setting before deployment or additional mounts after deployment. For example, Immich requires a unique database password, and Jellyfin needs a media folder mounted to access your media library.
 
-`main` ist der in den Registry-URLs verwendete Branch.
+### Templates
 
-## Regeln für Vorlagen
+- Home Assistant — local smart-home hub
+- Jellyfin — media server
+- Immich — photo and video library
+- Syncthing — peer-to-peer file synchronization
+- Uptime Kuma — uptime monitoring
+- ntfy — self-hosted push notifications
+- Trilium Notes — personal knowledge base
+- Nginx — simple first-deployment test
 
-- Nur vom jeweiligen App-Projekt gepflegte Upstream-Images aus Docker Hub oder GHCR verwenden. Kein Image eines Drittanbieters und keine selbst gebauten Images.
-- In `approved-images.txt` sind die konkret freigegebenen vollständigen Image-Repositories allowgelistet. Vor Ergänzung den Publisher, die Upstream-Dokumentation und das zugehörige Projekt-Repository prüfen; CI weist alle nicht freigegebenen Images zurück.
-- Image und Compose-Konfiguration vor Aufnahme anhand der Container-Dokumentation des Upstreams prüfen. GHCR ist nur für Immich zugelassen, weil Immich dort seine offiziellen Images veröffentlicht.
-- Keine Passwörter, Tokens oder sonstige echten Secrets einchecken. `.env.example` enthält nur harmlose Beispielwerte; erforderliche Secrets müssen vor dem Deploy gesetzt werden.
-- Bevorzugt stabile Versions-Tags statt `latest` einsetzen. Tags bei einem Update prüfen und die Änderung als PR einreichen.
-- Jede Vorlage hat `docker-compose.yml`, `.env.example` und eine kurze README mit Ports, Setup-Schritten und Besonderheiten.
-- Jede Vorlage soll projektweite Arcane-Metadaten (`x-arcane.icon` und `x-arcane.urls`) mit Icon, Projekt-Homepage und Upstream-Repository oder Docker-Hub-Seite setzen.
-- Keine unnötigen privilegierten Container, Docker-Socket-Mounts oder Host-Netzwerkmodi.
+### Image and security policy
 
-## Enthaltene Vorlagen
+- Use only container images published by the app's upstream project. No third-party repackaged images or locally built images.
+- Approved image repositories are listed in [`approved-images.txt`](approved-images.txt); CI rejects anything not on that list.
+- Images come from Docker Hub, except Immich, whose upstream publishes its official images on GHCR and has no official Docker Hub image.
+- Never commit real passwords or tokens. Set required secrets before deploying. Keep ntfy behind trusted access controls; do not expose an unauthenticated server to the public Internet.
+- Review ports, storage, device access, and backup needs in each template README before deployment.
 
-- Home Assistant, Jellyfin, Immich, Syncthing, Uptime Kuma, ntfy und Trilium Notes.
-- Nginx bleibt die kleinste Testvorlage und zeigt nach dem Deploy sofort die Willkommensseite.
+### Updates and contributions
 
-## Wöchentliche Pflege
+Arcane can check and apply image updates for deployed projects. This is separate from updates to the templates in this repository. Compose, storage, configuration, or dependency changes should be submitted here as a pull request. GitHub Actions validate the registry and run `docker compose config` against every template.
 
-Arcane kann Image-Updates für installierte Projekte selbst prüfen. Das ist unabhängig von Änderungen an dieser Registry. Für Vorlagen sollte eine wöchentliche KI-Prüfung zunächst nur einen Pull Request mit geprüften Änderungen erzeugen; automatische Veröffentlichung ungeprüfter Compose- oder Image-Änderungen ist nicht aktiviert.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor and AI instructions. Registry entries point to the `main` branch.
+
+## Deutsch
+
+Community-gepflegte Arcane-Compose-Vorlagen für beliebte Self-Hosting-Apps. Die Vorlagen verwenden Images, die vom jeweiligen Upstream-Projekt veröffentlicht werden, enthalten persistente Datenablagen und `x-arcane`-Metadaten und werden per GitHub Actions geprüft. Beiträge sind als Pull Request willkommen.
+
+### Registry in Arcane hinzufügen
+
+In Arcane **Customization → Templates → Add Registry** öffnen und diese URL hinzufügen:
+
+```text
+https://raw.githubusercontent.com/Broda24/arcane-templates/main/registry.json
+```
+
+Eine Vorlage auswählen und **Create Project** klicken. Arcane erstellt ein Compose-Projekt; zum Starten der Container muss es anschließend deployed/gestartet werden. Adresse und Port der App stehen in der README der jeweiligen Vorlage.
+
+Einige Apps brauchen vor dem Deploy eine Einstellung oder danach zusätzliche Mounts. Immich erfordert zum Beispiel ein eigenes Datenbankpasswort; Jellyfin benötigt einen Medienordner-Mount, um auf die eigene Mediathek zuzugreifen.
+
+### Vorlagen
+
+- Home Assistant — lokale Smart-Home-Zentrale
+- Jellyfin — Medienserver
+- Immich — Foto- und Videosammlung
+- Syncthing — Peer-to-Peer-Dateisynchronisierung
+- Uptime Kuma — Verfügbarkeitsüberwachung
+- ntfy — eigener Push-Benachrichtigungsserver
+- Trilium Notes — persönliche Wissensdatenbank
+- Nginx — einfacher Test für den ersten Deploy
+
+### Image- und Sicherheitsregeln
+
+- Nur Images verwenden, die vom jeweiligen App-Upstream veröffentlicht werden. Keine fremden neu verpackten oder lokal gebauten Images.
+- Die freigegebenen Image-Repositories stehen in [`approved-images.txt`](approved-images.txt); CI weist nicht freigegebene Images zurück.
+- Die Images kommen von Docker Hub. Ausnahme ist Immich: Das Upstream-Projekt veröffentlicht seine offiziellen Images auf GHCR und bietet kein offizielles Docker-Hub-Image an.
+- Keine echten Passwörter oder Tokens einchecken. Erforderliche Secrets vor dem Deploy setzen. ntfy nur mit vertrauenswürdigen Zugriffskontrollen betreiben und nicht ungeschützt öffentlich bereitstellen.
+- Vor dem Deploy die README der Vorlage zu Ports, Speicherung, Gerätezugriff und Backups beachten.
+
+### Updates und Beiträge
+
+Arcane kann Image-Updates laufender Projekte prüfen und einspielen. Das ist unabhängig von Änderungen der Vorlagen in diesem Repository. Änderungen an Compose, Storage, Konfiguration oder Abhängigkeiten bitte als Pull Request einreichen. GitHub Actions prüfen die Registry und führen `docker compose config` für jede Vorlage aus.
+
+Hinweise für Beiträge und KI stehen in [CONTRIBUTING.md](CONTRIBUTING.md). Die Registry-Einträge verweisen auf den Branch `main`.
