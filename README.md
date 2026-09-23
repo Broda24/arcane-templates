@@ -1,6 +1,6 @@
 # Arcane Template Registry
 
-Homelab-Sammlung von Compose-Vorlagen für Arcane. Als Image-Quelle sind Docker Official Images auf Docker Hub vorgesehen. Neue Vorlagen werden als Pull Request geprüft, bevor sie in Arcane erscheinen.
+Homelab-Sammlung von Compose-Vorlagen für Arcane. Erlaubt sind Images, die vom jeweiligen App-Projekt gepflegt und in `approved-images.txt` freigegeben sind. Die Images kommen von Docker Hub; Immich nutzt seine offiziellen Upstream-Images von GHCR, da es kein offizielles Immich-Image auf Docker Hub gibt. Neue Vorlagen werden als Pull Request geprüft, bevor sie in Arcane erscheinen.
 
 ## In Arcane einbinden
 
@@ -13,10 +13,10 @@ GitHub-Repository: [`Broda24/arcane-templates`](https://github.com/Broda24/arcan
    https://raw.githubusercontent.com/Broda24/arcane-templates/main/registry.json
    ```
 
-3. Vorlage **Nginx – Test-Webserver** wählen, **Create Project** klicken und das Projekt deployen.
-4. Im Browser `http://<Docker-Host-IP>:8080` öffnen.
+3. Eine Vorlage wählen, **Create Project** klicken und das Projekt deployen.
+4. Die jeweilige Weboberfläche unter Host-IP und Port aus der Vorlagen-README öffnen.
 
-**Create Project** erstellt in Arcane das Compose-Projekt. Zum tatsächlichen Starten ist danach noch der Deploy-/Start-Schritt nötig; bei dieser Nginx-Vorlage sind keine Zugangsdaten oder weiteren Dienste erforderlich. Für produktive Erreichbarkeit müssen Port und Firewall passend konfiguriert sein.
+**Create Project** erstellt in Arcane das Compose-Projekt. Zum tatsächlichen Starten ist danach noch der Deploy-/Start-Schritt nötig. Einige Apps benötigen vor dem Deploy noch Secrets oder Medien-/Geräte-Mounts; das steht in der jeweiligen README.
 
 ## Repository vorbereiten
 
@@ -24,20 +24,19 @@ GitHub-Repository: [`Broda24/arcane-templates`](https://github.com/Broda24/arcan
 
 ## Regeln für Vorlagen
 
-- Nur Docker Official Images aus dem impliziten Docker-Hub-Namespace `library` verwenden (z. B. `nginx:alpine`, `wordpress:...`, `mariadb:...`). Keine fremden Namespaces, GHCR-Images oder selbst gebauten Images.
-- In `official-images.txt` sind die konkret freigegebenen Image-Namen allowgelistet. Neue Namen erst nach Prüfung ihres Docker-Official-Status ergänzen; CI weist alle anderen Images zurück.
-- Image und Compose-Konfiguration vor Aufnahme anhand der offiziellen Docker-Hub-Seite und Upstream-Dokumentation prüfen.
+- Nur vom jeweiligen App-Projekt gepflegte Upstream-Images aus Docker Hub oder GHCR verwenden. Kein Image eines Drittanbieters und keine selbst gebauten Images.
+- In `approved-images.txt` sind die konkret freigegebenen vollständigen Image-Repositories allowgelistet. Vor Ergänzung den Publisher, die Upstream-Dokumentation und das zugehörige Projekt-Repository prüfen; CI weist alle nicht freigegebenen Images zurück.
+- Image und Compose-Konfiguration vor Aufnahme anhand der Container-Dokumentation des Upstreams prüfen. GHCR ist nur für Immich zugelassen, weil Immich dort seine offiziellen Images veröffentlicht.
 - Keine Passwörter, Tokens oder sonstige echten Secrets einchecken. `.env.example` enthält nur harmlose Beispielwerte; erforderliche Secrets müssen vor dem Deploy gesetzt werden.
 - Bevorzugt stabile Versions-Tags statt `latest` einsetzen. Tags bei einem Update prüfen und die Änderung als PR einreichen.
 - Jede Vorlage hat `docker-compose.yml`, `.env.example` und eine kurze README mit Ports, Setup-Schritten und Besonderheiten.
 - Jede Vorlage soll projektweite Arcane-Metadaten (`x-arcane.icon` und `x-arcane.urls`) mit Icon, Projekt-Homepage und Upstream-Repository oder Docker-Hub-Seite setzen.
 - Keine unnötigen privilegierten Container, Docker-Socket-Mounts oder Host-Netzwerkmodi.
 
-## Geplante nächste Tests
+## Enthaltene Vorlagen
 
-- **WordPress + MariaDB**: praxisnaher Mehr-Container-Test. Benötigt vor dem Start sichere, individuell gesetzte Datenbank-Passwörter und anschließend die WordPress-Ersteinrichtung im Browser; nicht komplett ohne Eingaben.
-- **PostgreSQL**: nützlicher Test für persistente Volumes und Secret-Variablen, aber ohne eigene Weboberfläche.
-- **Nginx** bleibt der erste Test, weil er nach dem Deploy unmittelbar im Browser erreichbar ist und keine Secrets benötigt.
+- Home Assistant, Jellyfin, Immich, Syncthing, Uptime Kuma, ntfy und Trilium Notes.
+- Nginx bleibt die kleinste Testvorlage und zeigt nach dem Deploy sofort die Willkommensseite.
 
 ## Wöchentliche Pflege
 

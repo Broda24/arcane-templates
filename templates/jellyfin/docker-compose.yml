@@ -1,0 +1,21 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/jellyfin.svg
+  urls:
+    - https://jellyfin.org/
+    - https://github.com/jellyfin/jellyfin
+
+services:
+  jellyfin:
+    image: docker.io/jellyfin/jellyfin:latest
+    ports:
+      - "${JELLYFIN_PORT:-8096}:8096"
+    volumes:
+      - jellyfin-config:/config
+      - jellyfin-cache:/cache
+      - jellyfin-media:/media:ro
+    restart: unless-stopped
+
+volumes:
+  jellyfin-config:
+  jellyfin-cache:
+  jellyfin-media:

@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/syncthing.svg
+  urls:
+    - https://syncthing.net/
+    - https://github.com/syncthing/syncthing
+
+services:
+  syncthing:
+    image: docker.io/syncthing/syncthing:latest
+    ports:
+      - "${SYNCTHING_GUI_PORT:-8384}:8384"
+      - "${SYNCTHING_SYNC_PORT:-22000}:22000/tcp"
+      - "${SYNCTHING_SYNC_PORT:-22000}:22000/udp"
+      - "${SYNCTHING_DISCOVERY_PORT:-21027}:21027/udp"
+    volumes:
+      - syncthing-data:/var/syncthing
+    restart: unless-stopped
+
+volumes:
+  syncthing-data:

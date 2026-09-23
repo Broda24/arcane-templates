@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate registry metadata, template paths, and Docker Official Image refs."""
+"""Validate registry metadata, template paths, and approved upstream image refs."""
 
 import json
 import re
@@ -15,7 +15,10 @@ REQUIRED_TEMPLATE_FIELDS = {
     "id", "name", "description", "version", "author", "compose_url",
     "env_url", "documentation_url", "tags"
 }
-OFFICIAL_IMAGE = re.compile(r"^[a-z0-9][a-z0-9._-]*:[A-Za-z0-9_][A-Za-z0-9_.-]*$")
+IMAGE_REFERENCE = re.compile(
+    r"^(?:(docker\.io|ghcr\.io)/)?([a-z0-9][a-z0-9._/-]*):"
+    r"([A-Za-z0-9_][A-Za-z0-9_.-]*)(?:@sha256:[a-f0-9]{64})?$"
+)
 
 
 def fail(message: str) -> None:
@@ -38,7 +41,7 @@ def main() -> None:
 
     approved_images = {
         line.strip()
-        for line in (ROOT / "official-images.txt").read_text(encoding="utf-8").splitlines()
+        for line in (ROOT / "approved-images.txt").read_text(encoding="utf-8").splitlines()
         if line.strip() and not line.lstrip().startswith("#")
     }
 
@@ -83,11 +86,17 @@ def main() -> None:
         if not images:
             fail(f"{template_id}: keine expliziten Image-Referenzen gefunden.")
         for image in images:
-            if not OFFICIAL_IMAGE.fullmatch(image):
-                fail(f"{template_id}: Image {image!r} ist nicht im erlaubten Docker-Hub-library-Format mit festem Tag.")
-            image_name = image.rsplit(":", 1)[0]
-            if image_name not in approved_images:
-                fail(f"{template_id}: Image {image_name!r} fehlt in official-images.txt; erst Docker-Official-Status prüfen und freigeben.")
+            match = IMAGE_REFERENCE.fullmatch(image)
+            if not match:
+                fail(f"{template_id}: Image {image!r} muss ein unterstütztes Registry-Image mit festem Tag sein.")
+            registry, image_path, _tag = match.groups()
+            if registry is None:
+                registry = "docker.io"
+                if "/" not in image_path:
+                    image_path = f"library/{image_path}"
+            canonical_image = f"{registry}/{image_path}"
+            if canonical_image not in approved_images:
+                fail(f"{template_id}: Upstream-Image {canonical_image!r} fehlt in approved-images.txt.")
 
     print(f"OK: Registry und {len(templates)} Template(s) geprüft.")
 

@@ -1,3 +1,0 @@
-# Docker Official Images only: image names without a namespace, i.e. Docker Hub library.
-# Add names here only after verifying their current Docker Official Image status.
-nginx

@@ -18,5 +18,8 @@ jobs:
       - name: Validate Compose files
         run: |
           for file in templates/*/docker-compose.yml; do
-            docker compose -f "$file" config --quiet
+            template_dir="$(dirname "$file")"
+            cp "$template_dir/.env.example" "$template_dir/.env"
+            DB_PASSWORD=ci-only-validation-placeholder docker compose --project-directory "$template_dir" --env-file "$template_dir/.env" -f "$file" config --quiet
+            rm "$template_dir/.env"
           done

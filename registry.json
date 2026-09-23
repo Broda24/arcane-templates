@@ -1,7 +1,7 @@
 {
   "$schema": "https://github.com/getarcaneapp/arcane-templates/schema.json",
   "name": "Homelab Templates",
-  "description": "Einfache, geprüfte Compose-Vorlagen mit Docker Official Images.",
+  "description": "Geprüfte Compose-Vorlagen mit vom jeweiligen Projekt gepflegten Container-Images.",
   "version": "1.0.0",
   "author": "Broda24",
   "url": "https://github.com/Broda24/arcane-templates",
@@ -16,6 +16,83 @@
       "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/nginx-welcome/.env.example",
       "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/nginx-welcome",
       "tags": ["webserver", "test", "nginx"]
+    },
+    {
+      "id": "home-assistant",
+      "name": "Home Assistant",
+      "description": "Lokale Smart-Home-Zentrale. Startet im Bridge-Netz; manche Geräteintegrationen brauchen zusätzliche Netzwerk- oder Gerätefreigaben.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/home-assistant/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/home-assistant/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/home-assistant",
+      "tags": ["smart-home", "home-assistant", "automation"]
+    },
+    {
+      "id": "jellyfin",
+      "name": "Jellyfin",
+      "description": "Kostenloser Medienserver. Enthält einen leeren Medienordner als Docker-Volume; Medien und optionale Hardware-Beschleunigung müssen eingerichtet werden.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/jellyfin/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/jellyfin/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/jellyfin",
+      "tags": ["media", "video", "streaming"]
+    },
+    {
+      "id": "immich",
+      "name": "Immich",
+      "description": "Selbst gehostete Foto- und Videosicherung mit Weboberfläche, Machine Learning, Valkey und PostgreSQL. Vor dem Start ein eigenes Datenbankpasswort setzen.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/immich/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/immich/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/immich",
+      "tags": ["photos", "backup", "immich"]
+    },
+    {
+      "id": "syncthing",
+      "name": "Syncthing",
+      "description": "Kontinuierliche Dateisynchronisierung zwischen Geräten. Bridge-Netzwerk mit veröffentlichten Sync-Ports; automatische LAN-Erkennung kann zusätzliche Netzwerkkonfiguration erfordern.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/syncthing/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/syncthing/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/syncthing",
+      "tags": ["files", "sync", "syncthing"]
+    },
+    {
+      "id": "uptime-kuma",
+      "name": "Uptime Kuma",
+      "description": "Selbst gehostetes Monitoring für Websites und Dienste mit Weboberfläche.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/uptime-kuma/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/uptime-kuma/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/uptime-kuma",
+      "tags": ["monitoring", "uptime", "status"]
+    },
+    {
+      "id": "ntfy",
+      "name": "ntfy",
+      "description": "Eigener Push-Benachrichtigungsserver mit Weboberfläche und persistentem Nachrichten-Cache. Nicht ungeschützt ins öffentliche Internet stellen.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/ntfy/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/ntfy/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/ntfy",
+      "tags": ["notifications", "ntfy", "push"]
+    },
+    {
+      "id": "trilium-notes",
+      "name": "Trilium Notes",
+      "description": "Selbst gehostete persönliche Wissensdatenbank und Notizverwaltung mit Synchronisierung.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/trilium-notes/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/trilium-notes/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/trilium-notes",
+      "tags": ["notes", "knowledge-base", "trilium"]
     }
   ]
 }

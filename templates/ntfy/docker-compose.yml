@@ -1,0 +1,21 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/ntfy.svg
+  urls:
+    - https://ntfy.sh/
+    - https://github.com/binwiederhier/ntfy
+
+services:
+  ntfy:
+    image: docker.io/binwiederhier/ntfy:v2.28.0
+    command: ["serve", "--cache-file", "/var/cache/ntfy/cache.db"]
+    ports:
+      - "${NTFY_PORT:-8085}:80"
+    volumes:
+      - ntfy-cache:/var/cache/ntfy
+    environment:
+      TZ: ${TZ:-Etc/UTC}
+    init: true
+    restart: unless-stopped
+
+volumes:
+  ntfy-cache:

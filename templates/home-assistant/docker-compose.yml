@@ -1,0 +1,21 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/home-assistant.svg
+  urls:
+    - https://www.home-assistant.io/
+    - https://github.com/home-assistant/core
+
+services:
+  home-assistant:
+    image: docker.io/homeassistant/home-assistant:stable
+    ports:
+      - "${HOME_ASSISTANT_PORT:-8123}:8123"
+    environment:
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+      - home-assistant-config:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    stop_grace_period: 60s
+
+volumes:
+  home-assistant-config:

@@ -1,0 +1,13 @@
+# Exact upstream-published image repositories approved for this registry.
+# docker.io = Docker Hub; ghcr.io is used only where the upstream project publishes there.
+docker.io/library/nginx
+docker.io/homeassistant/home-assistant
+docker.io/jellyfin/jellyfin
+ghcr.io/immich-app/immich-server
+ghcr.io/immich-app/immich-machine-learning
+docker.io/valkey/valkey
+ghcr.io/immich-app/postgres
+docker.io/syncthing/syncthing
+docker.io/louislam/uptime-kuma
+docker.io/binwiederhier/ntfy
+docker.io/triliumnext/trilium
