@@ -4,13 +4,13 @@ Private Homelab-Sammlung von Compose-Vorlagen für Arcane. Als Image-Quelle sind
 
 ## In Arcane einbinden
 
-Nach dem Erstellen des GitHub-Repositories `DEIN-GITHUB-USERNAME/arcane-templates`:
+GitHub-Repository: [`Broda24/arcane-templates`](https://github.com/Broda24/arcane-templates)
 
 1. In Arcane **Customization → Templates → Add Registry** öffnen.
 2. Diese Registry-URL hinzufügen:
 
    ```text
-   https://raw.githubusercontent.com/DEIN-GITHUB-USERNAME/arcane-templates/main/registry.json
+   https://raw.githubusercontent.com/Broda24/arcane-templates/main/registry.json
    ```
 
 3. Vorlage **Nginx – Test-Webserver** wählen, **Create Project** klicken und das Projekt deployen.
@@ -20,7 +20,7 @@ Nach dem Erstellen des GitHub-Repositories `DEIN-GITHUB-USERNAME/arcane-template
 
 ## Repository vorbereiten
 
-Vor dem Push alle Vorkommen von `DEIN-GITHUB-USERNAME` in `registry.json` durch deinen GitHub-Benutzernamen ersetzen. Danach das Verzeichnis als GitHub-Repository `arcane-templates` veröffentlichen. `main` ist der in den Registry-URLs verwendete Branch.
+`main` ist der in den Registry-URLs verwendete Branch.
 
 ## Regeln für Vorlagen
 

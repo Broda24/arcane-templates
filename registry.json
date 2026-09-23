@@ -3,18 +3,18 @@
   "name": "Homelab Templates",
   "description": "Einfache, geprüfte Compose-Vorlagen mit Docker Official Images.",
   "version": "1.0.0",
-  "author": "DEIN-GITHUB-USERNAME",
-  "url": "https://github.com/DEIN-GITHUB-USERNAME/arcane-templates",
+  "author": "Broda24",
+  "url": "https://github.com/Broda24/arcane-templates",
   "templates": [
     {
       "id": "nginx-welcome",
       "name": "Nginx – Test-Webserver",
       "description": "Ein sofort startbarer Nginx-Webserver mit der Standard-Willkommensseite. Verwendet das Docker Official Image nginx.",
       "version": "1.0.0",
-      "author": "DEIN-GITHUB-USERNAME",
-      "compose_url": "https://raw.githubusercontent.com/DEIN-GITHUB-USERNAME/arcane-templates/main/templates/nginx-welcome/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/DEIN-GITHUB-USERNAME/arcane-templates/main/templates/nginx-welcome/.env.example",
-      "documentation_url": "https://github.com/DEIN-GITHUB-USERNAME/arcane-templates/tree/main/templates/nginx-welcome",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/nginx-welcome/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/nginx-welcome/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/nginx-welcome",
       "tags": ["webserver", "test", "nginx"]
     }
   ]
