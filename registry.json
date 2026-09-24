@@ -172,6 +172,17 @@
       "tags": ["budget", "finance", "privacy"]
     },
     {
+      "id": "backrest",
+      "name": "Backrest",
+      "description": "DE: Weboberfläche für Restic-Backups mit persistenten Konfigurations- und Repository-Pfaden. / EN: Web UI for Restic backups with persistent configuration and repository paths.",
+      "version": "1.0.0",
+      "author": "Broda24",
+      "compose_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/backrest/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/Broda24/arcane-templates/main/templates/backrest/.env.example",
+      "documentation_url": "https://github.com/Broda24/arcane-templates/tree/main/templates/backrest",
+      "tags": ["backup", "restic", "storage"]
+    },
+    {
       "id": "gitea",
       "name": "Gitea",
       "description": "DE: Eigener Git-Dienst mit Weboberfläche und SSH. Nutzt das offizielle Image aus der Gitea-Registry. / EN: Self-hosted Git service with web UI and SSH, using Gitea's official container registry.",

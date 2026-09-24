@@ -16,7 +16,7 @@ https://raw.githubusercontent.com/Broda24/arcane-templates/main/registry.json
 
 Choose a template and select **Create Project**. Arcane creates a Compose project; deploy/start it to run the containers. Open the app at the host address and port documented in that template's README.
 
-Some apps need a setting before deployment or additional mounts after deployment. For example, Immich requires a unique database password, and Jellyfin needs a media folder mounted to access your media library.
+Some apps need a setting before deployment or additional mounts after deployment. For example, Immich requires a unique database password, Jellyfin needs a media folder mounted to access your media library, and Backrest needs host paths configured for backup sources and restore targets.
 
 ### Templates
 
@@ -36,6 +36,7 @@ Some apps need a setting before deployment or additional mounts after deployment
 | [Nextcloud](templates/nextcloud/) | File sync and collaboration platform |
 | [Mealie](templates/mealie/) | Recipe manager and meal planner |
 | [Actual Budget](templates/actual-budget/) | Personal finance and budgeting |
+| [Backrest](templates/backrest/) | Web UI and orchestrator for Restic backups |
 | [Gitea](templates/gitea/) | Self-hosted Git service |
 | [Audiobookshelf](templates/audiobookshelf/) | Audiobook and podcast server |
 | [Navidrome](templates/navidrome/) | Personal music streaming |
@@ -54,7 +55,7 @@ Some apps need a setting before deployment or additional mounts after deployment
 - Approved image repositories are listed in [`approved-images.txt`](approved-images.txt); CI rejects anything not on that list.
 - Docker Hub is preferred. GHCR and official vendor registries are used only where the upstream publishes its official image there and no suitable official Docker Hub image exists.
 - Never commit real passwords or tokens. Set required secrets before deploying. Keep ntfy behind trusted access controls; do not expose an unauthenticated server to the public Internet.
-- Keep sensitive or unauthenticated services (including Vaultwarden, Node-RED, n8n, SearXNG, Ollama, Homebox, and Zigbee2MQTT) on trusted networks or behind an authenticated HTTPS reverse proxy.
+- Keep sensitive or unauthenticated services (including Backrest, Vaultwarden, Node-RED, n8n, SearXNG, Ollama, Homebox, and Zigbee2MQTT) on trusted networks or behind an authenticated HTTPS reverse proxy.
 - Review ports, storage, device access, and backup needs in each template README before deployment.
 - Dozzle is intentionally not included yet: its standard setup requires Docker API access, which is root-equivalent. The registry does not mount the Docker socket into application containers.
 
@@ -84,7 +85,7 @@ https://raw.githubusercontent.com/Broda24/arcane-templates/main/registry.json
 
 Eine Vorlage auswählen und **Create Project** klicken. Arcane erstellt ein Compose-Projekt; zum Starten der Container muss es anschließend deployed/gestartet werden. Adresse und Port der App stehen in der README der jeweiligen Vorlage.
 
-Einige Apps brauchen vor dem Deploy eine Einstellung oder danach zusätzliche Mounts. Immich erfordert zum Beispiel ein eigenes Datenbankpasswort; Jellyfin benötigt einen Medienordner-Mount, um auf die eigene Mediathek zuzugreifen.
+Einige Apps brauchen vor dem Deploy eine Einstellung oder danach zusätzliche Mounts. Immich erfordert zum Beispiel ein eigenes Datenbankpasswort, Jellyfin benötigt einen Medienordner-Mount für die Mediathek und Backrest benötigt Host-Pfade für Backup-Quellen und Restore-Ziele.
 
 ### Vorlagen
 
@@ -104,6 +105,7 @@ Einige Apps brauchen vor dem Deploy eine Einstellung oder danach zusätzliche Mo
 | [Nextcloud](templates/nextcloud/) | Dateiablage und Zusammenarbeit |
 | [Mealie](templates/mealie/) | Rezeptverwaltung und Essensplanung |
 | [Actual Budget](templates/actual-budget/) | Haushaltsbudget und Finanzplanung |
+| [Backrest](templates/backrest/) | Weboberfläche und Orchestrierung für Restic-Backups |
 | [Gitea](templates/gitea/) | Eigener Git-Dienst |
 | [Audiobookshelf](templates/audiobookshelf/) | Hörbuch- und Podcastserver |
 | [Navidrome](templates/navidrome/) | Musikstreaming aus der eigenen Sammlung |
@@ -122,7 +124,7 @@ Einige Apps brauchen vor dem Deploy eine Einstellung oder danach zusätzliche Mo
 - Die freigegebenen Image-Repositories stehen in [`approved-images.txt`](approved-images.txt); CI weist nicht freigegebene Images zurück.
 - Docker Hub wird bevorzugt. GHCR und offizielle Hersteller-Registries sind nur zugelassen, wenn der Upstream sein offizielles Image dort veröffentlicht und kein passendes offizielles Docker-Hub-Image anbietet.
 - Keine echten Passwörter oder Tokens einchecken. Erforderliche Secrets vor dem Deploy setzen. ntfy nur mit vertrauenswürdigen Zugriffskontrollen betreiben und nicht ungeschützt öffentlich bereitstellen.
-- Sensible oder nicht standardmäßig geschützte Dienste (u. a. Vaultwarden, Node-RED, n8n, SearXNG, Ollama, Homebox und Zigbee2MQTT) nur in vertrauenswürdigen Netzen oder hinter einem authentifizierten HTTPS-Reverse-Proxy betreiben.
+- Sensible oder nicht standardmäßig geschützte Dienste (u. a. Backrest, Vaultwarden, Node-RED, n8n, SearXNG, Ollama, Homebox und Zigbee2MQTT) nur in vertrauenswürdigen Netzen oder hinter einem authentifizierten HTTPS-Reverse-Proxy betreiben.
 - Vor dem Deploy die README der Vorlage zu Ports, Speicherung, Gerätezugriff und Backups beachten.
 - Dozzle ist vorerst nicht enthalten: Die Standardkonfiguration benötigt Docker-API-Zugriff, der root-äquivalent ist. Diese Registry mountet den Docker-Socket nicht direkt in App-Container.
 

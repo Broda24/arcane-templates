@@ -24,6 +24,7 @@ docker.io/library/mariadb
 docker.io/library/redis
 ghcr.io/mealie-recipes/mealie
 docker.io/actualbudget/actual-server
+docker.io/garethgeorge/backrest
 docker.gitea.com/gitea
 ghcr.io/advplyr/audiobookshelf
 docker.io/deluan/navidrome
